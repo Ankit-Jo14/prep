@@ -3,28 +3,26 @@ package chapter2;
 public class Question1 {
 
 	public static void main(String[] args) {
-       Question1.getbit(15, 1);
+       Question1.mergebinary(21, 5, 1, 3);
+     //  System.out.println(" binary ->" + Integer.toBinaryString(1<<5));
+     //  System.out.println(" binary ->" + Long.toBinaryString(Double.doubleToRawLongBits(0.625)));
 	}
 
-	static int repeatedLogicalShift(int x, int count) {
-		for (int i = 0; i < count; i++) {
-			x >>>= 1; // Logical shift by 1
-		System.out.print(x);
-		System.out.println(" binary ->" + Integer.toBinaryString(x));
-		}
-		
-		return x;
-	}
-	
-	static boolean getbit(int num , int bit){
-		int k = 1<< bit;
-		System.out.println(k);
-		
-	 int num2 =	num & k;
-	 System.out.println(num2);
-	 System.out.println(num2 !=0);
-	 return true;
-		
-	}
+  static int mergebinary(int N , int M , int i , int j){
+	  System.out.println(" binary ->" + Integer.toBinaryString(N));
+	  int left = ~0 << j+1;
+	  System.out.println(" binary ->" + Integer.toBinaryString(left));
+	  int right = (1 << i)- 1;
+	  System.out.println(" binary ->" + Integer.toBinaryString((right)));
+	  int mask = left | right ;
+	  System.out.println(" binary ->" + Integer.toBinaryString(mask));
+	  int masked_N = N & mask;
+	  System.out.println(" binary ->" + Integer.toBinaryString(masked_N));
+	  int shift_M = M << i;
+	  System.out.println(" binary ->" + Integer.toBinaryString(shift_M));
+	  int answer = masked_N | shift_M;
+	  System.out.println(" binary ->" + Integer.toBinaryString(answer));
+	  return answer;
+  } 	
 
 }
