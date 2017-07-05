@@ -22,20 +22,21 @@ public class Question1 {
 		}
 	}
 
-	public static void deleteNode(LinkedListNode head, int data) {
+	public static LinkedListNode deleteNode(LinkedListNode head, int data) {
 		LinkedListNode n = head;
 		LinkedListNode previous = null;
 		if (head.data == data) {
-			head = head.next;
+			return head.next;
 		} else {
 			while (n != null) {
 				if (n.data == data) {
 					previous.next = n.next;
-					return;
+					return head;
 				}
 				previous = n;
 				n = n.next;
 			}
+			return head;
 		}
 
 	}
@@ -53,7 +54,7 @@ public class Question1 {
 		}
 
 		System.out.println(head.printForward());
-		deleteNode(head, 0);
+		LinkedListNode k =  deleteNode(head, 1);
 		// deleteDups(head);
 		System.out.println(head.printForward());
 	}
