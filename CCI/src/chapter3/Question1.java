@@ -6,16 +6,15 @@ import CtCILibrary.LinkedListNode;
 public class Question1 {
 
 	public static void deleteDups(LinkedListNode n) {
+
 		HashSet<Integer> set = new HashSet<Integer>();
 		LinkedListNode previous = null;
-		if (n != null) {
-			set.add(n.data);
-		}
-		while (n.next != null) {
-			if (set.contains(n.next.data)) {
+		
+		while (n != null) {
+			if (set.contains(n.data)) {
 				n.next = n.next.next;
 			} else {
-				set.add(n.next.data);
+				set.add(n.data);
 				previous = n;
 			}
 			n = n.next;
@@ -54,8 +53,8 @@ public class Question1 {
 		}
 
 		System.out.println(head.printForward());
-		LinkedListNode k =  deleteNode(head, 1);
-		// deleteDups(head);
+		//LinkedListNode k =  deleteNode(head, 1);
+		 deleteDups(head);
 		System.out.println(head.printForward());
 	}
 }
