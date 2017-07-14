@@ -27,30 +27,30 @@ public class Question4 {
 			if(node.data < x){
 				
 				if(head == null){
-					head = new LinkedListNode(node.data);
-					headEnd= new LinkedListNode();
-					head.next = headEnd;
+					head = node;
+					headEnd= node;
+				    
 				}else{
-					//LinkedListNode newNode= new LinkedListNode(node.data);
-					headEnd = node;
 					headEnd.next = node;
+					headEnd = node;
+					
 				}
 			
 			}else{
 				if(tail == null){
-					tail = new LinkedListNode(node.data);
-					tailEnd = new LinkedListNode();
-					tail.next = tailEnd;
-				}else{
-					LinkedListNode newNode= new LinkedListNode(node.data);
+					tail = node;
 					tailEnd = node;
+				}else{
+					 
+					
 					tailEnd.next =node;
-				}
+					tailEnd = node;
+				}     
 			}
 			node = node.next;
 		}
-		
-		headEnd= tail;
+		tailEnd.next = null;
+		headEnd.next = tail;
 		return head;
 		
 	}
